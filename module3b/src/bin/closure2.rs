@@ -5,7 +5,7 @@
 fn main() {
     let mut count = 0;
 
-    let mut inc = || {
+    let mut inc = move || {
         count += 1;
         println!("`count`: {}", count);
     };
