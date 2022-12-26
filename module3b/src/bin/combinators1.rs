@@ -5,7 +5,7 @@
 //   part_1, part_2, and part_3
 //
 // Notes:
-// * Run `cargo test --bin a23` to check your program.
+// * Run `cargo test --bin combinators1.rs` to check your program.
 // * Only edit the part_1, part_2, and part_3 functions.
 
 fn part_1() -> bool {
@@ -13,7 +13,7 @@ fn part_1() -> bool {
     // has an access level. The "admin" user does have
     // an access level.
     // Note: Use is_some or is_none.
-    maybe_access("admin")
+    maybe_access("admin").is_some()
 
 }
 
@@ -21,14 +21,14 @@ fn part_2() -> Option<Access> {
     // "Root" is equivalent to Access::Admin, but it is
     // not listed in the maybe_access function.
     // Note: Use or_else and root().
-    maybe_access("root")
+    maybe_access("root").or_else(|| root())
 }
 // let q_or_else = q.or_else(|| Some(6));
 fn part_3() -> Access {
     // "Alice" is not a listed user, so she will be a guest.
     // Note: Use unwrap_or_else.
     // let q_unwrap_or_else = q.unwrap_or_else(|| 0); 
-    maybe_access("Alice")
+    maybe_access("Alice").unwrap_or_else(|| Access::Guest)
 }
 
 #[derive(Debug, Eq, PartialEq)]
